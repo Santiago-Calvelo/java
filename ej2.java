@@ -11,18 +11,17 @@ public class ej2 {
 	}
 	
 	public static void divisores(int n) {
-		for (int i = 0; i < n; i++) {
-			if(n % i == 0) System.out.printf("Sus divisores son: %d, ", i);
+		System.out.print("Sus divisores son: ");
+		for (int i = 1; i < n; i++) {
+			if(n % i == 0) System.out.print(i + " ");
 		}
-		System.out.println("");
+		System.out.println();
 	}
 	
 	public static void main(String[] args) {
 		for (int i = 50; i <= 100; i++) {
 			if (esPrimo(i)) System.out.println("El numero es primo: " + i);
-			else {
-				
-			}
+			else divisores(i);
 		}
 	}
 }
