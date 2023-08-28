@@ -1,4 +1,4 @@
-package practicando;
+package cadenaCaracteres;
 import java.util.Scanner;
 
 public class cadenaCaracteres {
@@ -63,6 +63,60 @@ public class cadenaCaracteres {
 		System.out.println("Palabra modificada: " + word);
 	}
 	
+	public static void anagrama() {
+		Scanner scanner = new Scanner(System.in);
+		String w1, w2;
+		
+		System.out.print("Ingrese dos palabras para revisar si son anagramas: ");
+		w1 = scanner.next();
+		w2 = scanner.next();
+	
+		if (w1.length() == w2.length()) {
+			int count = 0;
+			
+			for (int i = 0; i < w1.length(); i++) {
+				for (int j = 0; j < w1.length(); j++) {
+					if (w1.charAt(i) == w2.charAt(j)) {
+						count++;
+						break;
+					}
+				}
+			}
+			if (count == w1.length()) System.out.println("La palabra " + w1 + " y " + w2 + " son anagramas");
+			else 					  System.out.println("Las palabras no son anagramas");
+		}
+		else System.out.println("Las palabras no son anagramas");
+	}
+	
+	public static void laMasLarga() {
+		Scanner scanner = new Scanner(System.in);
+		String w1, w2, w3, w4, w5;
+		
+		System.out.print("Ingrese 5 palabras: ");
+		w1 = scanner.next();
+		w2 = scanner.next();
+		w3 = scanner.next();
+		w4 = scanner.next();
+		w5 = scanner.next();
+		
+		int l1 = w1.length();
+		int l2 = w2.length();
+		int l3 = w3.length();
+		int l4 = w4.length();
+		int l5 = w5.length();
+		
+		String[] words = {w1,w2,w3,w4,w5};
+		int[] lengths = {l1,l2,l3,l4,l5};
+		int max = 0;
+		int idx = 0;
+		
+		for (int i = 0; i < 5; i++) {
+			if (max < lengths[i]) { max = lengths[i]; idx = i; }
+		}
+		
+		System.out.println("La palabra mas larga es: " + words[idx]);	
+	}
+	
 	public static void main(String[] args) {
 		while(true) {
 			System.out.println("1) Ejercicio 1: ingresar nombre");
@@ -91,10 +145,10 @@ public class cadenaCaracteres {
 				reemplazarCaracter();
 				break;
 			case 5:
-				//anagrama();
+				anagrama();
 				break;
 			case 6:
-				//laMasLarga();
+				laMasLarga();
 				break;
 			case 7:
 				System.exit(0);
