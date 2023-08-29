@@ -12,15 +12,23 @@ public class cadenaCaracteres {
 		System.out.println("" + nombre);
 	}
 	
-	public static void contarCaracteres() {
+	public static void contarVocales() {
 		Scanner scanner = new Scanner(System.in);
 		String word;
 		
 		System.out.print("Ingrese una palabra: ");
 		word = scanner.next();
-		int count = word.length();
+		int length = word.length();
+		int count = 0;
 		
-		System.out.println("Cantidad de caracteres: " + count);
+		for (int i = 0; i < length; i++) {
+			if (Character.toLowerCase(word.charAt(i)) == 'a') count++;
+			else if (Character.toLowerCase(word.charAt(i)) == 'e') count++;
+			else if (Character.toLowerCase(word.charAt(i)) == 'i') count++;
+			else if (Character.toLowerCase(word.charAt(i)) == 'o') count++;
+			else if (Character.toLowerCase(word.charAt(i)) == 'u') count++;
+		}
+		System.out.println("La cantidad de vocales de la palabra es: " + count);
 	}
 	
 	public static void palindromo() {
@@ -120,7 +128,7 @@ public class cadenaCaracteres {
 	public static void main(String[] args) {
 		while(true) {
 			System.out.println("1) Ejercicio 1: ingresar nombre");
-			System.out.println("2) Ejercicio 2: contar caracteres");
+			System.out.println("2) Ejercicio 2: contar vocales");
 			System.out.println("3) Ejercicio 3: es palindromo");
 			System.out.println("4) Ejercicio 4: reemplazar caracter");
 			System.out.println("5) Ejercicio 5: anagrama");
@@ -136,7 +144,7 @@ public class cadenaCaracteres {
 				ingresarNombre();
 				break;
 			case 2:
-				contarCaracteres();
+				contarVocales();
 				break;
 			case 3:
 				palindromo();
